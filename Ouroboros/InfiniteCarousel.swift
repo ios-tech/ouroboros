@@ -189,6 +189,10 @@ public class InfiniteCarousel: UICollectionView, UICollectionViewDataSource, UIC
         return true
     }
     
+    public func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        rootDelegate?.collectionView!(collectionView, didSelectItemAtIndexPath: self.adjustedIndexPathForIndexPath(indexPath))
+    }
+    
     public override func didUpdateFocusInContext(context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
         guard jumping else {
             return
